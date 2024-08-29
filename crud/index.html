@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>두카미 스토리</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="header">
+        <h1 class="logo">DUCAMI STORY</h1>
+        <button class="write" id="writeBtn">글쓰기</button>
+    </div>
+    <!-- 글 작성하기 -->
+    <div class="write-form hidden" id="writeForm">
+        <i class="fas fa-times" id="closeModal"></i>
+        <form class="form-example" onsubmit="event.preventDefault();savePost();" autocomplete="off">
+            <div class="form-title">
+                <label for="postTitle">제목: </label>
+                <input type="text" name="postTitle" id="postTitle" maxlength="20" required oninput="countLength(20, this)" />
+            </div>
+            <div class="form-writer">
+                <label for="postWriter">글쓴이: </label>
+                <input type="text" name="postWriter" id="postWriter" maxlength="8" required oninput="countLength(8, this)" />
+            </div>
+            <div class="form-text">
+                <textarea id="postText" placeholder="글을 작성하세요." rows="10" required></textarea>
+            </div>
+            <div class="form-save">
+                <input type="submit" value="저장" id="saveBtn" class="save" />
+            </div>
+        </form>
+    </div>
+    <div class="overlay hidden" id="overlay"></div>
+    <!-- 글 읽기 폼 -->
+     <div class="read-form hidden" id="readForm">
+        <i class="fas fa-times" id="closeRead"></i>
+        <div class="read-container">
+           <div class="read-title" id="readTitle"></div>
+           <div class="read-writer" id="readWriter"></div>
+        </div>
+        <div class="read-zone">
+           <div class="read-text" id="readText"></div>
+        </div>
+     </div>
+    <!-- 글 목록 -->
+    <table class="text-list" id="textList"></table>
+
+    <script src="script.js"></script>
+</body>
+</html>
